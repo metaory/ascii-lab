@@ -11,9 +11,6 @@ importers:
       '@fontsource/coiny':
         specifier: ^5.2.7
         version: 5.2.7
-      '@fontsource/monofett':
-        specifier: ^5.2.8
-        version: 5.2.8
       gradient-gl:
         specifier: ^1.5.0
         version: 1.5.0
@@ -185,9 +182,6 @@ packages:
 
   '@fontsource/coiny@5.2.7':
     resolution: {integrity: sha512-jZjruYBXTMd6vIJ33LkvfD/K9IwCFnBd/ociE69Ypu1KXSDv/4cv0Uyps+5QKjY52EuGBniuEcUcv24NtEyksA==}
-
-  '@fontsource/monofett@5.2.8':
-    resolution: {integrity: sha512-cUtT8ScH3HHsMBkRrXFCrhGpKqRrKVNOhnYVSusECfB7g13YZjOrrLlhlc3o+R2IYpRrQQg/T/febSVD6k2Dhw==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -480,8 +474,6 @@ snapshots:
     optional: true
 
   '@fontsource/coiny@5.2.7': {}
-
-  '@fontsource/monofett@5.2.8': {}
 
   '@iconify/types@2.0.0': {}
 
