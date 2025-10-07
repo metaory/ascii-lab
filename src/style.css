@@ -80,11 +80,11 @@ pre {
   border-radius: 0;
   display: block;
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   font-weight: bold;
   width: 100svw;
-  height: calc(100svh + 100px);
+  height: 100svh;
   mix-blend-mode: overlay;
 }
 .frame {
