@@ -3,7 +3,7 @@
 <img valign="middle" width="40" src="public/favicon.svg">
 ascii-lab
 </h1>
-Interactive ASCII art animations
+experimental ASCII art effects
 </div>
 
 ---
