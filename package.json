@@ -1,7 +1,7 @@
 {
   "name": "ascii-lab",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "bugs": "https://github.com/metaory/ascii-lab/issues",
   "homepage": "https://metaory.github.io/ascii-lab/",
   "repository": "git+https://github.com/metaory/ascii-lab.git",
