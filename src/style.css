@@ -16,6 +16,8 @@ body {
   display: flex;
   flex-direction: column;
   font-family: var(--mono);
+  background: #110022;
+  color: #8877dd;
 }
 .controls {
   position: fixed;
@@ -32,7 +34,8 @@ body {
 }
 button {
   background: rgba(0, 0, 0, 0.6);
-  color: #fff;
+  opacity: .4;
+  color: #AA99EE;
   border: 0;
   padding: 4px 8px 8px;
   border-radius: 12px;
@@ -43,6 +46,7 @@ button {
   gap: 6px;
   transition: all 0.3s ease-in-out;
   &:hover {
+    opacity: .9;
     background: white;
     color: black;
   }
@@ -68,6 +72,7 @@ button.active {
   background: white;
   color: black;
   mix-blend-mode: difference;
+  opacity: .6;
 }
 pre {
   margin: 0;
@@ -85,9 +90,9 @@ pre {
   font-weight: bold;
   width: 100svw;
   height: 100svh;
-  mix-blend-mode: overlay;
   box-sizing: border-box;
   align-content: end;
+  text-align: center;
 }
 
 #links {

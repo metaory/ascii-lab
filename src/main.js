@@ -3,13 +3,15 @@ import '@fontsource/coiny'
 import 'iconify-icon'
 import gradientGl from 'gradient-gl'
 import { effects } from './effects/index.js'
+import { makeDims } from './util.js'
 
-gradientGl('a2.aae9')
 
 const pre = document.getElementById('stage')
 const RESIZE_DELAY = 140
 const MIN_COLS = 20
 const MIN_ROWS = 10
+const MAX_COLS = 120
+const MAX_ROWS = 60
 const CHAR_WIDTH = 8
 const CHAR_HEIGHT = 12
 
@@ -25,10 +27,9 @@ const colsRows = () => {
   const availableHeight = pre.clientHeight
   const calculatedRows = Math.ceil(availableHeight / ch) + 8
 
-  return {
-    cols: Math.max(MIN_COLS, Math.floor(pre.clientWidth / cw)),
-    rows: Math.max(MIN_ROWS, calculatedRows)
-  }
+  const cols = Math.max(MIN_COLS, Math.floor(pre.clientWidth / cw))
+  const rows = Math.max(MIN_ROWS, calculatedRows)
+  return makeDims(cols, rows, MAX_COLS, MAX_ROWS)
 }
 
 let currentKey = null
@@ -116,5 +117,16 @@ const handleResize = () => {
 }
 
 renderControls()
-activate('life')
+const keys = Object.keys(effects)
+const name = keys[Math.random() * keys.length | 0]
+activate(name)
 window.addEventListener('resize', handleResize)
+
+document.addEventListener('visibilitychange', () => {
+  if (!currentKey) return
+  if (document.hidden) {
+    effects[currentKey]?.stop?.()
+  } else {
+    activate(currentKey)
+  }
+})
