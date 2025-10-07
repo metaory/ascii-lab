@@ -1,7 +1,7 @@
 {
   "name": "ascii-lab",
   "private": true,
-  "version": "0.6.0",
+  "version": "0.7.0",
   "bugs": "https://github.com/metaory/ascii-lab/issues",
   "homepage": "https://metaory.github.io/ascii-lab/",
   "repository": "git+https://github.com/metaory/ascii-lab.git",
@@ -9,7 +9,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build --base=/ascii-lab/",
     "preview": "vite preview"
   },

@@ -14,16 +14,20 @@ const CHAR_WIDTH = 8
 const CHAR_HEIGHT = 12
 
 const colsRows = () => {
-  const s = Object.assign(document.createElement('span'), { 
-    textContent: 'M', 
-    style: { visibility: 'hidden' } 
+  const s = Object.assign(document.createElement('span'), {
+    textContent: 'M',
+    style: { visibility: 'hidden', position: 'absolute' }
   })
   pre.appendChild(s)
   const { width: cw = CHAR_WIDTH, height: ch = CHAR_HEIGHT } = s.getBoundingClientRect()
   pre.removeChild(s)
-  return { 
-    cols: Math.max(MIN_COLS, Math.floor(pre.clientWidth / cw)), 
-    rows: Math.max(MIN_ROWS, Math.floor(pre.clientHeight / ch)) 
+
+  const availableHeight = pre.clientHeight
+  const calculatedRows = Math.ceil(availableHeight / ch) + 8
+
+  return {
+    cols: Math.max(MIN_COLS, Math.floor(pre.clientWidth / cw)),
+    rows: Math.max(MIN_ROWS, calculatedRows)
   }
 }
 
@@ -83,10 +87,10 @@ const renderControls = () => {
 
 const activate = (name) => {
   if (!name || !effects[name]) return
-  
+
   const prev = currentKey && effects[currentKey]
   prev?.stop?.()
-  
+
   currentKey = name
   effects[name].start(pre, colsRows)
   setActive(buttonsByName[name])
