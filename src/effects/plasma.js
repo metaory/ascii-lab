@@ -16,7 +16,7 @@ export const plasma = {
           const idx = Math.floor(((v + 3) / 6) * (chars.length - 1));
           out += chars[idx];
         }
-        out += '\n';
+        if (y < h - 1) out += '\n';
       }
       pre.textContent = out;
       this.loopId = requestAnimationFrame(step);

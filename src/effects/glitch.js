@@ -17,8 +17,9 @@ export const glitch = {
       }
       let out = '';
       for (let y = 0; y < h; y++) {
-        if (Math.random() > 0.96) out += buf[h - 1 - y] + '\n';
-        else out += buf[y] + '\n';
+        if (Math.random() > 0.96) out += buf[h - 1 - y];
+        else out += buf[y];
+        if (y < h - 1) out += '\n';
       }
       pre.textContent = out;
       this.loopId = requestAnimationFrame(step);

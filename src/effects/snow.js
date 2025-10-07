@@ -23,7 +23,7 @@ export const snow = {
           p.vy = 0.2 + Math.random() * 1.2; 
           p.chr = ['*', '❅', '.', '•', '✻'][Math.random() * 5 | 0]; 
         }
-        const xi = (p.x | 0 + w) % w, yi = p.y | 0;
+        const xi = ((p.x | 0) + w) % w, yi = p.y | 0;
         grid[yi][xi] = p.chr;
       }
       pre.textContent = grid.map(r => r.join('')).join('\n');

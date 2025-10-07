@@ -4,20 +4,23 @@ export const wave = {
   label: 'wave',
   start(pre, colsRows) {
     const { cols: w, rows: h } = colsRows();
-    const chars = '~`-._/\\|—=+*oO0@';
+    const chars = '~`-._/\\|=+*oO0@';
     let t = 0;
     
     const step = () => {
       t += 0.25;
       let out = '';
       for (let y = 0; y < h; y++) {
-        const amp = 3 + Math.sin(y * 0.25 + t) * 3;
-        const shift = Math.floor((Math.sin(t * 1.4 + y * 0.9) + 1) * amp);
+        const amp = 2 + Math.sin(y * 0.22 + t * 0.7) * 3;
+        const phase = Math.sin(t * 1.2 + y * 0.8);
+        const shift = Math.floor((phase + 1) * amp);
         for (let x = 0; x < w; x++) {
-          const cx = (x + shift) % chars.length;
-          out += chars[cx | 0];
+          const k = (x + shift) % chars.length;
+          const p = (Math.sin((x + y * 0.3 + t) * 0.1) + 1) * 0.5;
+          const idx = (k * p) | 0;
+          out += chars[idx];
         }
-        out += '\n';
+        if (y < h - 1) out += '\n';
       }
       pre.textContent = out;
       this.loopId = requestAnimationFrame(step);

@@ -27,24 +27,11 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   padding: 16px;
-  background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(4px);
   z-index: 30;
 }
-.stage-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  mix-blend-mode: color-dodge;
-}
 button {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
   color: #fff;
   border: 0;
   padding: 4px 8px 8px;
@@ -54,9 +41,13 @@ button {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 6px;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background: white;
+    color: black;
+  }
 }
 button#bg-rand {
-  background: rgba(0, 0, 0, 0.8);
   grid-template-columns: auto;
   padding: 4px 6px;
   border-radius: 16px;
@@ -64,15 +55,8 @@ button#bg-rand {
   left: 10px;
   bottom: 10px;
   z-index: 40;
-  transition: background 0.2s ease-in-out;
   img {
     filter: invert(1);
-  }
-  &:hover {
-    background: white;
-    img {
-      filter: invert(0);
-    }
   }
 }
 
@@ -92,26 +76,24 @@ pre {
   overflow: hidden;
   background: transparent;
   font-size: 12px;
-  line-height: 12px;
-  border-radius: 8px;
+  line-height: 1;
+  border-radius: 0;
+  display: block;
+  position: fixed;
+  bottom: -10px;
+  left: 50%;
+  font-weight: bold;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100vh;
+  mix-blend-mode: overlay;
+  /* filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6)); */
 }
 .frame {
   width: 100%;
   height: 100%;
-  max-width: 1200px;
-  max-height: 100%;
   display: block;
   box-sizing: border-box;
-}
-@media (max-width: 640px) {
-  pre {
-    font-size: 10px;
-    line-height: 10px;
-  }
-}
-/* subtle glow for visibility on varied backgrounds */
-pre {
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
 }
 
 #links {
@@ -120,16 +102,25 @@ pre {
   right: 16px;
   display: flex;
   gap: 8px;
-  z-index: 25;
+  z-index: 50;
 }
 
-#links a {
-  color: #fff;
-  text-decoration: none;
+#links button {
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
   padding: 8px;
-  background: rgba(0, 0, 0, 0.9);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 0;
+  cursor: pointer;
+  &:hover {
+    background: black;
+  }
+  a {
+    color: #0ff;
+    width: 18px;
+  }
+}
+
+#links iconify-icon {
+  width: 24px;
+  height: 24px;
 }
